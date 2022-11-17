@@ -1,0 +1,40 @@
+<!DOCTYPE html><html lang="en"><head><title>Rick and Morty</title><meta charset="utf-8"><meta name="description" content="&lt;model-viewer&gt;"><meta name="viewport" content="width=device-width, initial-scale=1"><link type="text/css" href="/csb-4z4v9c/styles.75b9c86b.css" rel="stylesheet"><script src="https://unpkg.com/focus-visible@5.0.2/dist/focus-visible.js" defer></script></head><body>  <model-viewer src="./assets/models/portalgun.glb" poster="./assets/models/portalgun.webp" bounds="tight" enable-pan="" shadow-intensity="2" shadow-softness="1" ar="" ar-modes="webxr scene-viewer quick-look" camera-controls="" camera-orbit="-1123deg 74.55deg auto" environment-image="neutral" alt="Brand_name"> <button id="portalgun" class="Hotspot show" slot="hotspot-r1" data-position="-67.63573314123943m 43.889345500160125m -19.13163705996569m" data-normal="-0.7730105462913913m 1.033557699309999e-7m -0.6343931709297274m" data-visibility-attribute="visible"> <div class="HotspotAnnotation"> (Concentrated dark matter capsule) power supply </div> </button> <button id="portalgun" class="Hotspot show" slot="hotspot-r2" data-position="-116.59725586017846m -18.966066330707417m 33.35853624792593m" data-normal="-0.9999999999999867m -1.6292067939182924e-7m -2.6543151672600766e-14m" data-visibility-attribute="visible"> <div class="HotspotAnnotation">(Portal Emitter)</div> </button> <button id="portalgun" class="Hotspot show" slot="hotspot-r3" data-position="79.33500027037935m 2.235211987464517m -8.327516591389376m" data-normal="0.3170378257674849m 0.9389810859867778m 0.1334224013864151m" data-visibility-attribute="visible"> <div class="HotspotAnnotation">(Input system) Sci-fi dial</div> </button> <button id="berry" class="hide Hotspot" slot="hotspot-g1" data-position="0.17938371605603073m 0.980539565142744m 0.2224342232799641m" data-normal="0m -1.6858739648739632e-7m 0.9999999999999858m" data-visibility-attribute="visible"> <div class="HotspotAnnotation"> Tophat Jones with a bowl full of crunchy marshmallow Smiggles </div> </button> <button id="berry" class="hide Hotspot" slot="hotspot-g2" data-position="-0.3366777818948854m 1.2453707418943m -0.2224338480195398m" data-normal="0m 1.6858739648739632e-7m -0.9999999999999858m" data-visibility-attribute="visible"> <div class="HotspotAnnotation">Part of a Balanced Breakfast</div> </button> <button id="plumbus" class="hide Hotspot" slot="hotspot-b1" data-position="-84.10122101508631m 15.694302093332062m -3.1228649779620863m" data-normal="-0.9222183284693739m 0.36477378041495506m -0.12827097784353342m" data-visibility-attribute="visible"> <div class="HotspotAnnotation">Dingle Bop(???)</div> </button> <button id="plumbus" class="hide Hotspot" slot="hotspot-b2" data-position="-15.108189949375287m 128.9962262045556m -11.340006808643441m" data-normal="-0.7730058889433975m -7.377335987998919e-8m -0.6343988458838987m" data-visibility-attribute="visible"> <div class="HotspotAnnotation"> Grodus (a handle for extreme comfort when cleaning) </div> </button> <button id="plumbus" class="hide Hotspot" slot="hotspot-b3" data-position="36.69250011444083m -5.9547348226408m -16.624452023410054m" data-normal="1m 0m 0m" data-visibility-attribute="visible"> <div class="HotspotAnnotation"> Chumble (fibers to instantly get rid of any awful mess) </div> </button> <div class="title-brand">Rick and Morty</div> <div class="hide progress-bar" slot="progress-bar"> <div class="update-bar"></div> </div> <button slot="ar-button" id="./assets/ar-button.png"> View in your space </button> <div id="ar-prompt"> <img src="/csb-4z4v9c/ar_hand_prompt.f3fd1336.webp"> </div> <button id="ar-failure"> AR is not tracking! </button> <div class="slider"> <div class="slides"> <button id="portalgun" class="selected slide" onclick="switchSrc(this, 'portalgun')" style="background-image:url(/csb-4z4v9c/portalgun.3ea3493f.webp);"></button> <button id="berry" class="slide" onclick="switchSrc(this, 'berry')" style="background-image:url(/csb-4z4v9c/berry.8c52b566.webp);"></button> <button id="plumbus" class="slide" onclick="switchSrc(this, 'plumbus')" style="background-image:url(/csb-4z4v9c/plumbus.d8012a3c.webp);"></button> </div> </div> </model-viewer> <script type="module">
+      const modelViewer = document.querySelector("model-viewer");
+
+      window.switchSrc = (element, name) => {
+        const base = "./assets/models/" + name;
+        modelViewer.src = base + ".glb";
+        modelViewer.poster = base + ".webp";
+        const slides = document.querySelectorAll(".slide");
+        slides.forEach((element) => {
+          element.classList.remove("selected");
+        });
+        element.classList.add("selected");
+
+        var infoSet = [];
+
+        const info = document.querySelectorAll(".Hotspot");
+        info.forEach((element) => {
+          element.classList.add("hide");
+        });
+        if (name === "portalgun") {
+          var infoSet = document.querySelectorAll(`[id^="portalgun"]`);
+        }
+        if (name === "berry") {
+          var infoSet = document.querySelectorAll(`[id^="berry"]`);
+        }
+        if (name === "plumbus") {
+          var infoSet = document.querySelectorAll(`[id^="plumbus"]`);
+        }
+        infoSet.forEach((element) => {
+          element;
+          element.classList.remove("hide");
+          element.classList.add("show");
+        });
+      };
+      document
+        .querySelector("slider")
+        .addEventListener("beforexrselect", (ev) => {
+          ev.preventDefault();
+        });
+    </script> <script src="/csb-4z4v9c/script.bb798d4a.js"></script>  <script type="module" src="https://unpkg.com/@google/model-viewer/dist/model-viewer.min.js"></script> </body></html>
